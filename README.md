@@ -1,2 +1,6 @@
-# Getting Started with Create React App
-**Simple Todo App with React CRA**
+# Simple Todo App with React CRA
+**TODO**
+- Performance Optimizing
+- Covert to Material UI
+- Authorization via React Backend
+

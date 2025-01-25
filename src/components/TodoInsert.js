@@ -1,21 +1,23 @@
 import React, { useCallback, useState } from 'react';
 import { MdAdd } from 'react-icons/md';
 import './TodoInsert.css';
-
-const TodoInsert = ({ onInsert }) => {
+import { insert } from '../modules/todos';
+import { useDispatch } from '../../node_modules/react-redux/dist/react-redux';
+const TodoInsert = () => {
   const [value, setValue] = useState('');
 
   const onChange = useCallback((e) => {
     setValue(e.target.value);
   });
 
+  const dispatch = useDispatch();
   const onSubmit = useCallback(
     (e) => {
-      onInsert(value);
+      dispatch(insert(value));
       setValue('');
       e.preventDefault();
     },
-    [onInsert, value],
+    [insert, value],
   );
 
   return (

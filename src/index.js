@@ -5,9 +5,19 @@ import App from './App';
 import { createStore } from '../node_modules/redux/dist/redux';
 import rootReducer from './modules/index';
 import { Provider } from '../node_modules/react-redux/dist/react-redux';
+
+import { applyMiddleware } from 'redux';
+import { thunk } from 'redux-thunk';
+import { composeWithDevTools } from '@redux-devtools/extension';
+import { createLogger } from 'redux-logger';
+
 // import reportWebVitals from './reportWebVitals';
 
-const store = createStore(rootReducer);
+const logger = createLogger();
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(logger, thunk)),
+);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

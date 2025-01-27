@@ -1,6 +1,7 @@
 import { createAction } from 'redux-actions';
 import { handleActions } from 'redux-actions';
 import { faker } from '@faker-js/faker';
+import { useDispatch } from '../../node_modules/react-redux/dist/react-redux';
 
 const CHANGE_INPUT = 'todos/CHANGE_INPUT';
 const INSERT = 'todos/INSERT';
@@ -16,6 +17,14 @@ export const insert = createAction(INSERT, (text) => ({
 }));
 export const toggle = createAction(TOGGLE, (id) => id);
 export const remove = createAction(REMOVE, (id) => id);
+
+// const dispatch = useDispatch();
+export const toggleAsync = (id) => (dispatch) => {
+  console.log('toggleAsync');
+  setTimeout(() => {
+    dispatch(toggle(id));
+  }, 1000);
+};
 
 let testArr = [];
 testArr = createBulkTodos();

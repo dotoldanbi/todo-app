@@ -1,7 +1,8 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
 import './TodoList.css';
-import { useSelector } from '../../node_modules/react-redux/dist/react-redux';
+
+const onPageChange = (page) => {};
 
 const TodoList = ({ todos }) => {
   return (
